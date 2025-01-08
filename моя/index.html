@@ -1,11 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="css/Nole.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Главная страница</title>
 </head>
 <body>
-    <H1>Hello world?</H1>
+    <header>
+        <nav>
+            <a href="login.html">Войти</a>
+            <a href="statistics.html">Статистика</a>
+            <a href="#">Добавить катамаран</a>
+        </nav>
+    </header>
+    <main class="main">
+        <div class="wrapper">
+            <h2 class="title">Катамараны</h2>
+            <div class="catamaran-list">
+                <div class="catamaran-card">
+                    <h3 class="catamaran-card-title">Катамаран 1</h3>
+                    <p>Статус: <span class="status">Выключен</span></p>
+                    <button class="toggle-btn">Включить</button><button class="toggle-btn">Выключить</button>
+                </div>
+                <div class="catamaran-card">
+                    <h3 class="catamaran-card-title">Катамаран 2</h3>
+                    <p>Статус: <span class="status">Выключен</span></p>
+                    <button class="toggle-btn">Включить</button><button class="toggle-btn">Выключить</button>
+                </div>
+                <div class="catamaran-card">
+                    <h3 class="catamaran-card-title">Катамаран 3</h3>
+                    <p>Статус: <span class="status">Выключен</span></p>
+                    <button class="toggle-btn">Включить</button><button class="toggle-btn">Выключить</button>
+                </div>
+            </div>
+        </div>
+    </main>
 </body>
 </html>
