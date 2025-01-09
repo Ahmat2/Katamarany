@@ -8,16 +8,17 @@
     <title>Панель администратора</title>
 </head>
 <body>
-    <header>
-        <h1>Панель администратора</h1>
-        <nav>
-            <a href="index.html">Главная</a>
-            <a href="login.html">Выйти</a>
+    <header class="header">
+        <div class="burger" id="burger">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+        <nav class="nav" id="nav">
+            <a class="nav-link" href="login.html">Выйти</a>
         </nav>
     </header>
-    
     <main>
-        <h2>Список катамаранов</h2>
         <div class="admin-catamaran-list">
             <div class="admin-catamaran-card">
                 <h3>Катамаран 1</h3>
@@ -27,9 +28,8 @@
                 <h3>Катамаран 2</h3>
                 <p>Статус: <span class="status">Включен</span></p>
             </div>
-            <!-- Добавьте дополнительные карточки катамаранов здесь -->
         </div>
-        <button class="add-curator">Добавить куратора</button>
     </main>
+    <script src="js/script.js"></script>
 </body>
 </html>

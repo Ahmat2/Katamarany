@@ -22,9 +22,71 @@ nav a {
     text-decoration: none;
 }
 
-
 h1, h2 {
     margin: 10px 0;
+}
+
+.header {
+    background-color: #333;
+    color: #fff;
+    padding: 1em;
+    position: relative;
+}
+
+.burger {
+    display: none; /* Скрыть бургер-меню по умолчанию */
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.line {
+    height: 3px;
+    width: 25px;
+    background-color: white;
+    margin: 4px 0;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-around;
+}
+
+.nav-link {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Стиль для мобильных устройств */
+@media (max-width: 768px) {
+    .burger {
+        display: flex; /* Показать бургер-меню на мобильных устройствах */
+    }
+    
+    .nav {
+        display: none; /* Скрыть навигацию по умолчанию */
+        flex-direction: column;
+        position: fixed; /* Зафиксировать навигацию */
+        top: 0;
+        left: 0;
+        width: 100%; /* Полная ширина */
+        height: 100%; /* Полная высота */
+        background-color: rgba(51, 51, 51, 0.99); /* Полупрозрачный фон */
+        justify-content: center; /* Центрировать ссылки */
+        align-items: center; /* Центрировать ссылки */
+        z-index: 10; /* Убедиться, что навигация поверх других элементов */
+        transition: transform 0.3s ease; /* Плавный переход */
+        transform: translateX(-100%); /* Скрыть навигацию */
+    }
+
+    .nav.active {
+        display: flex; /* Показать навигацию */
+        transform: translateX(0); /* Показать навигацию */
+    }
+
+    .nav-link {
+        font-size: 2em; /* Увеличить размер шрифта */
+        margin: 1em 0; /* Отступы между ссылками */
+    }
 }
 
 .catamaran-list, .catamaran-statistics, .admin-catamaran-list {

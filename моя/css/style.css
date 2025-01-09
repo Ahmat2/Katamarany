@@ -134,6 +134,10 @@ body {
     background-color: #444343;
 }
 
+.status-status{
+    font-weight: bold;
+}
+
 /* Адаптивность */
 @media (max-width: 600px) {
     .nav {

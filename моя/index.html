@@ -15,7 +15,7 @@
             <div class="line"></div>
         </div>
         <nav class="nav" id="nav">
-            <a class="nav-link" href="login.html">Войти</a>
+            <a class="nav-link" href="login.html">Выйти</a>
         </nav>
     </header>
     <main class="main">
@@ -35,7 +35,7 @@
                         </form>
                         <div class="status-message"></div>
                     </div>
-                    <p class="status-text">Статус: <span class="status-status">Выключен</span></p>
+                    <p class="status-text">Статус: <span class="status-status">Включен</span></p>
                     <button type="submit" class="toggle-btn toggle-on">Включить</button>
                     <button class="toggle-btn toggle-off">Выключить</button>
                 </div>
@@ -76,48 +76,6 @@
             </div>
         </div>
     </main>
-    <script>
- document.addEventListener("DOMContentLoaded", function() {
-    const burger = document.getElementById("burger");
-    const nav = document.getElementById("nav");
-
-    burger.addEventListener("click", function() {
-        nav.classList.toggle("active"); // Переключить класс active
-    });
-
-    const rentalForms = document.querySelectorAll('.rental-form');
-
-    const toggleButtons = document.querySelectorAll('.toggle-btn.toggle-on');
-
-    toggleButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const form = this.closest('.catamaran-card').querySelector('.rental-form');
-            const startTime = form.querySelector('input[type="time"]:nth-of-type(1)').value;
-            const endTime = form.querySelector('input[type="time"]:nth-of-type(2)').value;
-            const statusMessageDiv = form.nextElementSibling;
-            const statusSpan = this.closest('.catamaran-card').querySelector('.status-status');
-
-            // Проверка времени
-            if (startTime && endTime) {
-                if (startTime < endTime) {
-                    statusMessageDiv.textContent = "";
-                    statusSpan.textContent = "Включен"; // Изменить статус на "Включен"
-                } else {
-                    statusMessageDiv.textContent = "Время окончания должно быть позже времени начала.";
-                }
-            }
-        });
-    });
-
-    const toggleOffButtons = document.querySelectorAll('.toggle-btn.toggle-off');
-
-    toggleOffButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const statusSpan = this.closest('.catamaran-card').querySelector('.status-status');
-            statusSpan.textContent = "Выключен"; // Изменить статус на "Выключен"
-        });
-    });
-});
-    </script>
+    <script src="js/script.js"></script>
 </body>
 </html>
