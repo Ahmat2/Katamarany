@@ -5,37 +5,119 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/Nole.css">
     <link rel="stylesheet" href="css/style.css">
-    <title>Главная страница</title>
+    <title>Берег</title>
 </head>
 <body>
-    <header>
-        <nav>
-            <a href="login.html">Войти</a>
-            <a href="statistics.html">Статистика</a>
-            <a href="#">Добавить катамаран</a>
+    <header class="header">
+        <div class="burger" id="burger">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+        <nav class="nav" id="nav">
+            <a class="nav-link" href="login.html">Войти</a>
         </nav>
     </header>
     <main class="main">
         <div class="wrapper">
             <h2 class="title">Катамараны</h2>
             <div class="catamaran-list">
+                <!-- Катамаран 1 -->
                 <div class="catamaran-card">
                     <h3 class="catamaran-card-title">Катамаран 1</h3>
-                    <p>Статус: <span class="status">Выключен</span></p>
-                    <button class="toggle-btn">Включить</button><button class="toggle-btn">Выключить</button>
+                    <div class="container">
+                        <form class="rental-form">
+                            <label for="startTime1" class="form-label">Время начала:</label>
+                            <input type="time" id="startTime1" class="form-input" required>
+                            
+                            <label for="endTime1" class="form-label">Время окончания:</label>
+                            <input type="time" id="endTime1" class="form-input" required>
+                        </form>
+                        <div class="status-message"></div>
+                    </div>
+                    <p class="status-text">Статус: <span class="status-status">Выключен</span></p>
+                    <button type="submit" class="toggle-btn toggle-on">Включить</button>
+                    <button class="toggle-btn toggle-off">Выключить</button>
                 </div>
+                <!-- Катамаран 2 -->
                 <div class="catamaran-card">
                     <h3 class="catamaran-card-title">Катамаран 2</h3>
-                    <p>Статус: <span class="status">Выключен</span></p>
-                    <button class="toggle-btn">Включить</button><button class="toggle-btn">Выключить</button>
+                    <div class="container">
+                        <form class="rental-form">
+                            <label for="startTime1" class="form-label">Время начала:</label>
+                            <input type="time" id="startTime1" class="form-input" required>
+                            
+                            <label for="endTime1" class="form-label">Время окончания:</label>
+                            <input type="time" id="endTime1" class="form-input" required>
+                        </form>
+                        <div class="status-message"></div>
+                    </div>
+                    <p class="status-text">Статус: <span class="status-status">Выключен</span></p>
+                    <button type="submit" class="toggle-btn toggle-on">Включить</button>
+                    <button class="toggle-btn toggle-off">Выключить</button>
                 </div>
+                <!-- Катамаран 3 -->
                 <div class="catamaran-card">
                     <h3 class="catamaran-card-title">Катамаран 3</h3>
-                    <p>Статус: <span class="status">Выключен</span></p>
-                    <button class="toggle-btn">Включить</button><button class="toggle-btn">Выключить</button>
+                    <div class="container">
+                        <form class="rental-form">
+                            <label for="startTime1" class="form-label">Время начала:</label>
+                            <input type="time" id="startTime1" class="form-input" required>
+                            
+                            <label for="endTime1" class="form-label">Время окончания:</label>
+                            <input type="time" id="endTime1" class="form-input" required>
+                        </form>
+                        <div class="status-message"></div>
+                    </div>
+                    <p class="status-text">Статус: <span class="status-status">Выключен</span></p>
+                    <button type="submit" class="toggle-btn toggle-on">Включить</button>
+                    <button class="toggle-btn toggle-off">Выключить</button>
                 </div>
             </div>
         </div>
     </main>
+    <script>
+ document.addEventListener("DOMContentLoaded", function() {
+    const burger = document.getElementById("burger");
+    const nav = document.getElementById("nav");
+
+    burger.addEventListener("click", function() {
+        nav.classList.toggle("active"); // Переключить класс active
+    });
+
+    const rentalForms = document.querySelectorAll('.rental-form');
+
+    const toggleButtons = document.querySelectorAll('.toggle-btn.toggle-on');
+
+    toggleButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const form = this.closest('.catamaran-card').querySelector('.rental-form');
+            const startTime = form.querySelector('input[type="time"]:nth-of-type(1)').value;
+            const endTime = form.querySelector('input[type="time"]:nth-of-type(2)').value;
+            const statusMessageDiv = form.nextElementSibling;
+            const statusSpan = this.closest('.catamaran-card').querySelector('.status-status');
+
+            // Проверка времени
+            if (startTime && endTime) {
+                if (startTime < endTime) {
+                    statusMessageDiv.textContent = "";
+                    statusSpan.textContent = "Включен"; // Изменить статус на "Включен"
+                } else {
+                    statusMessageDiv.textContent = "Время окончания должно быть позже времени начала.";
+                }
+            }
+        });
+    });
+
+    const toggleOffButtons = document.querySelectorAll('.toggle-btn.toggle-off');
+
+    toggleOffButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const statusSpan = this.closest('.catamaran-card').querySelector('.status-status');
+            statusSpan.textContent = "Выключен"; // Изменить статус на "Выключен"
+        });
+    });
+});
+    </script>
 </body>
 </html>

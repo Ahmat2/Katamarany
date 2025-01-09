@@ -1,99 +1,152 @@
+/* Общие стили */
 body {
-    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
     background-color: #f4f4f4;
 }
 
-header {
-    background: #007bff;
+.header {
+    background-color: #333;
     color: #fff;
-    text-align: center;
-    padding: 20px 0;
+    padding: 1em;
+    position: relative;
 }
 
-nav{
+.burger {
+    display: none; /* Скрыть бургер-меню по умолчанию */
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.line {
+    height: 3px;
+    width: 25px;
+    background-color: white;
+    margin: 4px 0;
+}
+
+.nav {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-around;
 }
 
-nav a {
+.nav-link {
     color: #fff;
-    margin: 0 10px;
     text-decoration: none;
 }
 
-.catamaran-list, .catamaran-statistics, .admin-catamaran-list {
+/* Стиль для мобильных устройств */
+@media (max-width: 768px) {
+    .burger {
+        display: flex; /* Показать бургер-меню на мобильных устройствах */
+    }
+    
+    .nav {
+        display: none; /* Скрыть навигацию по умолчанию */
+        flex-direction: column;
+        position: fixed; /* Зафиксировать навигацию */
+        top: 0;
+        left: 0;
+        width: 100%; /* Полная ширина */
+        height: 100%; /* Полная высота */
+        background-color: rgba(51, 51, 51, 0.99); /* Полупрозрачный фон */
+        justify-content: center; /* Центрировать ссылки */
+        align-items: center; /* Центрировать ссылки */
+        z-index: 10; /* Убедиться, что навигация поверх других элементов */
+        transition: transform 0.3s ease; /* Плавный переход */
+        transform: translateX(-100%); /* Скрыть навигацию */
+    }
+
+    .nav.active {
+        display: flex; /* Показать навигацию */
+        transform: translateX(0); /* Показать навигацию */
+    }
+
+    .nav-link {
+        font-size: 2em; /* Увеличить размер шрифта */
+        margin: 1em 0; /* Отступы между ссылками */
+    }
+}
+
+.status-message{
+    margin: 0 0 10px 0;
+}
+
+.title {
+    text-align: center;
+    margin: 1em 0 0 0;
+}
+
+/* Стили для карточек катамаранов */
+.catamaran-list {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin: 20px;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 1em 1em 1em;
 }
 
-.title{
-    text-align: center;
-    margin-top: 15px;
-    font-size: 1.3em;
+.catamaran-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin: 1em 0;
+    padding: 1em;
+    width: 90%; /* Ширина карточки 90% от родителя */
+    max-width: 400px; /* Максимальная ширина карточки */
 }
 
-.catamaran-card, .stat-card, .admin-catamaran-card {
-    background: #fff;
+/* Стили для формы аренды */
+.rental-form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1em;
+}
+
+.form-label {
+    margin: 0.5em 0 0.2em;
+}
+
+.form-input {
+    padding: 0.5em;
+    margin-bottom: 1em;
     border: 1px solid #ccc;
-    border-radius: 5px;
-    margin: 10px;
-    padding: 15px;
-    width: 200px;
-    text-align: center;
+    border-radius: 4px;
 }
 
-.catamaran-card-title{
-    margin: 5px;
-}
-
-.toggle-btn, .add-catamaran, .add-curator {
-    background: #28a745;
-    border: none;
+/* Кнопки */
+.form-button, .toggle-btn {
+    background-color: #28a745;
     color: white;
-    padding: 10px 15px;
-    cursor: pointer;
-    margin: 10px 5px;
-}
-
-.toggle-btn:active, .add-catamaran:active, .add-curator:active {
-    background: #218838;
-}
-
-.login-form {
-    max-width: 300px;
-    margin: 0 auto;
-}
-
-.login-form label {
-    display: block;
-    margin: 10px 0 5px;
-}
-
-.login-form input {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-}
-
-.login-form button {
-    width: 100%;
-    padding: 10px;
-    background: #007bff;
-    color: white;
+    padding: 0.5em;
     border: none;
+    border-radius: 4px;
     cursor: pointer;
+    margin-top: 0.5em;
 }
 
-.login-form button:hover {
-    background: #0056b3;
+.toggle-btn {
+    background-color: #007bff;
+    margin-right: 0.5em;
+}
+
+.toggle-btn:last-child {
+    background-color: #444343;
 }
 
 /* Адаптивность */
 @media (max-width: 600px) {
-    .catamaran-card, .stat-card, .admin-catamaran-card {
-        width: 100%;
+    .nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .catamaran-card {
+        width: 100%; /* Полная ширина для маленьких экранов */
+    }
+
+    .form-button, .toggle-btn {
+        width: 100%; /* Кнопки на всю ширину */
+        margin-top: 0.5em;
     }
 }
