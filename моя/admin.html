@@ -15,11 +15,55 @@
             <div class="line"></div>
         </div>
         <nav class="nav" id="nav">
-            <a class="nav-link" href="login.html">Выйти</a>
+            <a class="nav-link" href="#" id="addCatamaran">Добавить катамаран</a>
+            <a class="nav-link" href="#" id="addUser">Добавить пользователя</a>
+            <a class="nav-link" href="login.html">Выйти из аккаунта</a>
         </nav>
     </header>
     <main>
-        <div class="admin-catamaran-list">
+        <div class="modal" id="addUserModal">
+            <div class="modal-content">
+                <span class="close" id="closeUserModal">&times;</span>
+                <h2>Добавить пользователя</h2>
+                <form id="addUserForm">
+                    <label for="username">Логин:</label>
+                    <input type="text" id="username" name="username" required>
+            
+                    <label for="password">Пароль:</label>
+                    <input type="password" id="password" name="password" required>
+            
+                    <label for="role">Роль:</label>
+                    <select id="role" name="role" required>
+                        <option value="pontoon">Человек на понтоне</option>
+                        <option value="admin">Администратор</option>
+                    </select>
+            
+                    <button type="submit">Добавить</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Модальное окно для добавления катамарана -->
+        <div class="modal" id="addCatamaranModal">
+            <div class="modal-content">
+                <span class="close" id="closeCatamaranModal">&times;</span>
+                <h2>Добавить катамаран</h2>
+                <form id="addCatamaranForm">
+                    <label for="catamaranName">Название катамарана:</label>
+                    <input type="text" id="catamaranName" name="catamaranName" required>
+            
+                    <label for="catamaranStatus">Статус:</label>
+                    <select id="catamaranStatus" name="catamaranStatus" required>
+                        <option value="выключен">Выключен</option>
+                        <option value="включен">Включен</option>
+                    </select>
+            
+                    <button type="submit">Добавить</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="admin-catamaran-list" id="catamaranList">
             <div class="admin-catamaran-card">
                 <h3>Катамаран 1</h3>
                 <p>Статус: <span class="status">Выключен</span></p>
