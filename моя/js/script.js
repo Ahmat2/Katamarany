@@ -63,6 +63,36 @@ document.addEventListener("DOMContentLoaded", function() {
         catamaranModal.style.display = "block"; // Открываем модальное окно
     }
 
+    // Закрытие меню при клике вне
+    document.addEventListener("click", function(event) {
+        const isClickInsideNav = nav.contains(event.target);
+        const isClickInsideBurger = burger.contains(event.target);
+
+        if (!isClickInsideNav && !isClickInsideBurger && nav.classList.contains("active")) {
+            nav.classList.remove("active"); // Закрыть меню
+        }
+    });
+
+    
+
+    // Закрытие меню при клике вне
+    document.addEventListener("click", function(event) {
+        const isClickInsideNav = nav.contains(event.target);
+        const isClickInsideBurger = burger.contains(event.target);
+
+        if (!isClickInsideNav && !isClickInsideBurger && nav.classList.contains("active")) {
+            nav.classList.remove("active"); // Закрыть меню
+        }
+    });
+
+    // Закрытие меню при клике на область меню, кроме ссылок
+    nav.addEventListener("click", function(event) {
+        const isClickInsideLink = event.target.classList.contains('nav-link');
+        if (!isClickInsideLink && nav.classList.contains("active")) {
+            nav.classList.remove("active"); // Закрыть меню
+        }
+    });
+
     closeCatamaranModal.onclick = function() {
         catamaranModal.style.display = "none";
     }
